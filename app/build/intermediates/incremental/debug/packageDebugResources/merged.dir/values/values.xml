@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="accent">#3B82F6</color>
+    <color name="accent_container">#16273D</color>
+    <color name="accent_dark">#12325C</color>
+    <color name="bg">#121214</color>
+    <color name="black">#FF000000</color>
+    <color name="cat_cafe">#3B82F6</color>
+    <color name="cat_default">#8E8E93</color>
+    <color name="cat_food">#EF4444</color>
+    <color name="cat_stay">#F59E0B</color>
+    <color name="cat_travel">#22C55E</color>
+    <color name="map_bg">#132116</color>
+    <color name="map_block">#20321F</color>
+    <color name="map_road">#2C3A2E</color>
+    <color name="negative">#F87171</color>
+    <color name="negative_container">#3A1A1A</color>
+    <color name="outline">#3A3A3C</color>
+    <color name="positive">#4ADE80</color>
+    <color name="positive_container">#14331F</color>
+    <color name="scrim">#99000000</color>
+    <color name="surface">#1C1C1E</color>
+    <color name="surface_elevated">#2C2C2E</color>
+    <color name="surface_variant">#2A2A2C</color>
+    <color name="text_primary">#F2F2F5</color>
+    <color name="text_secondary">#9A9AA0</color>
+    <color name="text_tertiary">#6E6E73</color>
+    <color name="warning">#F59E0B</color>
+    <color name="warning_container">#3A2A0A</color>
+    <color name="white">#FFFFFFFF</color>
+    <dimen name="card_radius">16dp</dimen>
+    <dimen name="pill_radius">24dp</dimen>
+    <dimen name="screen_h">16dp</dimen>
+    <string name="add">추가</string>
+    <string name="add_photo">사진 추가</string>
+    <string name="add_place">장소 추가</string>
+    <string name="add_to_trip">여행 일정에 추가</string>
+    <string name="app_name">PawMap</string>
+    <string name="cancel">취소</string>
+    <string name="cat_all">전체</string>
+    <string name="cat_cafe">카페</string>
+    <string name="cat_food">맛집</string>
+    <string name="cat_stay">숙소</string>
+    <string name="cat_travel">여행지</string>
+    <string name="create_trip">여행 일정 만들기</string>
+    <string name="create_trip_sub">새로운 여행을 떠나보세요.</string>
+    <string name="delete">삭제</string>
+    <string name="done">완료</string>
+    <string name="edit">편집</string>
+    <string name="empty_day">아직 추가된 장소가 없어요</string>
+    <string name="empty_list">저장한 장소가 없어요</string>
+    <string name="empty_past_trips">지난 여행이 없어요</string>
+    <string name="empty_search">검색 결과가 없어요</string>
+    <string name="info_notice">아래 항목은 장소마다 등록 여부가 달라 일부 정보가 없을 수 있어요</string>
+    <string name="memo">메모</string>
+    <string name="memo_hint">오늘 하루를 기록해보세요</string>
+    <string name="new_list">+ 새 목록</string>
+    <string name="no_memo">기록된 메모가 없어요</string>
+    <string name="past_trips">지난 여행 돌아보기</string>
+    <string name="past_trips_title">지난 여행</string>
+    <string name="pet_name_help">이름을 입력하고 Enter를 누르면 태그로 추가돼요</string>
+    <string name="pet_name_hint">이름 입력 후 추가</string>
+    <string name="pet_name_q">함께 동반할 반려동물 이름을 입력해주세요</string>
+    <string name="pet_ok_banner">반려동물과 함께 방문 가능한 곳이에요</string>
+    <string name="photo_memo">사진 및 메모</string>
+    <string name="photos_videos">사진 및 동영상</string>
+    <string name="pick_dates">여행 날짜를 선택해주세요.</string>
+    <string name="places_count">%1$d개 장소</string>
+    <string name="save">저장</string>
+    <string name="saved">저장됨</string>
+    <string name="saved_search_hint">저장한 플레이스 검색</string>
+    <string name="search_hint">장소, 지역 검색</string>
+    <string name="tab_info">정보</string>
+    <string name="tab_map">지도 홈</string>
+    <string name="tab_overview">개요</string>
+    <string name="tab_saved">저장한 플레이스</string>
+    <string name="tab_trip">여행 일정</string>
+    <string name="trip_intro">반려견과 함께하는 자유로운 여행을 계획해보세요!</string>
+    <string name="trip_name_hint">예: 강릉·속초 여행</string>
+    <string name="trip_name_q">여행 이름을 지어주세요!</string>
+    <string name="trip_register">여행 일정 등록</string>
+    <string name="untitled_trip">제목 없는 여행</string>
+    <style name="Theme.PawMap" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/accent</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/accent_container</item>
+        <item name="colorOnPrimaryContainer">@color/accent</item>
+
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+        <item name="colorOutline">@color/outline</item>
+
+        <item name="android:colorBackground">@color/bg</item>
+        <item name="colorSurfaceContainer">@color/surface_variant</item>
+
+        <item name="android:statusBarColor">@color/bg</item>
+        <item name="android:navigationBarColor">@color/surface</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar" ns1:targetApi="o_mr1">false</item>
+
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_tertiary</item>
+    </style>
+    <style name="Theme.PawMap.FullScreenDialog" parent="Theme.Material3.Dark.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@color/bg</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+</resources>

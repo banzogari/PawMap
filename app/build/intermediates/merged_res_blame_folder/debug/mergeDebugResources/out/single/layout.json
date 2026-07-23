@@ -1,0 +1,82 @@
+[
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/item_trip_place.xml",
+        "source": "com.pawmap.app-main-60:/layout/item_trip_place.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/view_photo_box.xml",
+        "source": "com.pawmap.app-main-60:/layout/view_photo_box.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/item_journal_section.xml",
+        "source": "com.pawmap.app-main-60:/layout/item_journal_section.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/dialog_journal_edit.xml",
+        "source": "com.pawmap.app-main-60:/layout/dialog_journal_edit.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/fragment_past_trips.xml",
+        "source": "com.pawmap.app-main-60:/layout/fragment_past_trips.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/fragment_add_place.xml",
+        "source": "com.pawmap.app-main-60:/layout/fragment_add_place.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/fragment_search_result.xml",
+        "source": "com.pawmap.app-main-60:/layout/fragment_search_result.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/item_list_place.xml",
+        "source": "com.pawmap.app-main-60:/layout/item_list_place.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/fragment_list_detail.xml",
+        "source": "com.pawmap.app-main-60:/layout/fragment_list_detail.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/fragment_saved_places.xml",
+        "source": "com.pawmap.app-main-60:/layout/fragment_saved_places.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/fragment_map_home.xml",
+        "source": "com.pawmap.app-main-60:/layout/fragment_map_home.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/activity_main.xml",
+        "source": "com.pawmap.app-main-60:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/fragment_trip_name.xml",
+        "source": "com.pawmap.app-main-60:/layout/fragment_trip_name.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/fragment_trip_detail.xml",
+        "source": "com.pawmap.app-main-60:/layout/fragment_trip_detail.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/fragment_place_detail.xml",
+        "source": "com.pawmap.app-main-60:/layout/fragment_place_detail.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/item_past_trip.xml",
+        "source": "com.pawmap.app-main-60:/layout/item_past_trip.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/item_search_result.xml",
+        "source": "com.pawmap.app-main-60:/layout/item_search_result.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/fragment_trip_main.xml",
+        "source": "com.pawmap.app-main-60:/layout/fragment_trip_main.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/item_place_list.xml",
+        "source": "com.pawmap.app-main-60:/layout/item_place_list.xml"
+    },
+    {
+        "merged": "com.pawmap.app-mergeDebugResources-57:/layout/fragment_past_trip_detail.xml",
+        "source": "com.pawmap.app-main-60:/layout/fragment_past_trip_detail.xml"
+    }
+]

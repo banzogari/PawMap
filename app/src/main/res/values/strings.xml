@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PawMap</string>
+
+    <!-- Bottom nav -->
+    <string name="tab_map">지도 홈</string>
+    <string name="tab_saved">저장한 플레이스</string>
+    <string name="tab_trip">여행 일정</string>
+
+    <!-- Common -->
+    <string name="save">저장</string>
+    <string name="saved">저장됨</string>
+    <string name="done">완료</string>
+    <string name="add">추가</string>
+    <string name="cancel">취소</string>
+    <string name="delete">삭제</string>
+    <string name="edit">편집</string>
+
+    <!-- Map home -->
+    <string name="search_hint">장소, 지역 검색</string>
+    <string name="cat_all">전체</string>
+    <string name="cat_cafe">카페</string>
+    <string name="cat_food">맛집</string>
+    <string name="cat_stay">숙소</string>
+    <string name="cat_travel">여행지</string>
+    <string name="empty_search">검색 결과가 없어요</string>
+
+    <!-- Detail -->
+    <string name="add_to_trip">여행 일정에 추가</string>
+    <string name="tab_overview">개요</string>
+    <string name="tab_info">정보</string>
+    <string name="pet_ok_banner">반려동물과 함께 방문 가능한 곳이에요</string>
+    <string name="info_notice">아래 항목은 장소마다 등록 여부가 달라 일부 정보가 없을 수 있어요</string>
+    <string name="photos_videos">사진 및 동영상</string>
+
+    <!-- Saved -->
+    <string name="saved_search_hint">저장한 플레이스 검색</string>
+    <string name="new_list">+ 새 목록</string>
+    <string name="empty_list">저장한 장소가 없어요</string>
+    <string name="places_count">%1$d개 장소</string>
+
+    <!-- Trip -->
+    <string name="trip_intro">반려견과 함께하는 자유로운 여행을 계획해보세요!</string>
+    <string name="create_trip">여행 일정 만들기</string>
+    <string name="create_trip_sub">새로운 여행을 떠나보세요.</string>
+    <string name="past_trips">지난 여행 돌아보기</string>
+    <string name="past_trips_title">지난 여행</string>
+    <string name="trip_register">여행 일정 등록</string>
+    <string name="pick_dates">여행 날짜를 선택해주세요.</string>
+    <string name="trip_name_q">여행 이름을 지어주세요!</string>
+    <string name="trip_name_hint">예: 강릉·속초 여행</string>
+    <string name="pet_name_q">함께 동반할 반려동물 이름을 입력해주세요</string>
+    <string name="pet_name_hint">이름 입력 후 추가</string>
+    <string name="pet_name_help">이름을 입력하고 Enter를 누르면 태그로 추가돼요</string>
+    <string name="add_place">장소 추가</string>
+    <string name="empty_day">아직 추가된 장소가 없어요</string>
+    <string name="photo_memo">사진 및 메모</string>
+    <string name="add_photo">사진 추가</string>
+    <string name="memo">메모</string>
+    <string name="memo_hint">오늘 하루를 기록해보세요</string>
+    <string name="no_memo">기록된 메모가 없어요</string>
+    <string name="empty_past_trips">지난 여행이 없어요</string>
+    <string name="untitled_trip">제목 없는 여행</string>
+</resources>
