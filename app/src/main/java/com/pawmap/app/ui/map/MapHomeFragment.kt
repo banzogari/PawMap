@@ -85,11 +85,12 @@ class MapHomeFragment : Fragment(), OnMapReadyCallback {
             findNavController().navigate(R.id.action_map_to_search)
         }
 
-        binding.chipAll.setOnClickListener { runSearch("") }
-        binding.chipCafe.setOnClickListener { runSearch(getString(R.string.cat_cafe)) }
-        binding.chipFood.setOnClickListener { runSearch(getString(R.string.cat_food)) }
-        binding.chipStay.setOnClickListener { runSearch(getString(R.string.cat_stay)) }
-        binding.chipTravel.setOnClickListener { runSearch(getString(R.string.cat_travel)) }
+        binding.chipAll.setOnClickListener { runSearch(null) }
+        binding.chipCafe.setOnClickListener { runSearch("CAFE") }
+        binding.chipFood.setOnClickListener { runSearch("FOOD") }
+        binding.chipStay.setOnClickListener { runSearch("STAY") }
+        binding.chipTravel.setOnClickListener { runSearch("TRAVEL") }
+        binding.chipShop.setOnClickListener { runSearch("SHOP") }
 
         binding.btnLocation.setOnClickListener {
             naverMap?.locationTrackingMode = LocationTrackingMode.Follow
@@ -107,9 +108,10 @@ class MapHomeFragment : Fragment(), OnMapReadyCallback {
     }
 
     // Category-chip filtering shows its results inline in the bottom sheet.
-    private fun runSearch(query: String) {
+    // null categoryType (전체) shows every place instead of filtering.
+    private fun runSearch(categoryType: String?) {
         pendingFit = true
-        vm.search(query)
+        vm.filterByCategory(categoryType)
         sheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
     }
 

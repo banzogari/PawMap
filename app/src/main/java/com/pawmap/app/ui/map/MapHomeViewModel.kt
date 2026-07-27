@@ -16,8 +16,11 @@ class MapHomeViewModel(app: Application) : AndroidViewModel(app) {
     private val _rows = MutableLiveData<List<PlaceRow>>()
     val rows: LiveData<List<PlaceRow>> = _rows
 
+    // Only one of these is active at a time; category filter (chips) takes
+    // precedence over the free-text query when both are set.
     var query: String = ""
         private set
+    private var activeCategoryType: String? = null
 
     init {
         search("") // populate markers with all places on first load
@@ -25,12 +28,20 @@ class MapHomeViewModel(app: Application) : AndroidViewModel(app) {
 
     fun search(q: String) {
         query = q
+        activeCategoryType = null
+        refresh()
+    }
+
+    /** Filters by exact categoryType (e.g. "CAFE"), or clears the filter when [type] is null. */
+    fun filterByCategory(type: String?) {
+        activeCategoryType = type
         refresh()
     }
 
     fun refresh() {
         viewModelScope.launch {
-            val places = repo.search(query)
+            val type = activeCategoryType
+            val places = if (type != null) repo.searchByCategory(type) else repo.search(query)
             _rows.value = places.map { PlaceRow(it, repo.isFavorite(it.id)) }
         }
     }

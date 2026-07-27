@@ -26,6 +26,10 @@ class PawRepository private constructor(private val dao: PawDao) {
         return if (q.isEmpty()) dao.getAllPlaces() else dao.search(q)
     }
 
+    /** Exact categoryType match, used by the map-home filter chips. */
+    suspend fun searchByCategory(categoryType: String): List<PlaceEntity> =
+        dao.getPlacesByCategoryType(categoryType)
+
     // ---- Saved-place lists ----
     fun observeLists(): Flow<List<ListWithCount>> = dao.observeListsWithCount()
     suspend fun getList(id: Long): PlaceListEntity? = dao.getList(id)

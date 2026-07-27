@@ -23,6 +23,7 @@
     <string name="cat_food">맛집</string>
     <string name="cat_stay">숙소</string>
     <string name="cat_travel">여행지</string>
+    <string name="cat_shop">쇼핑</string>
     <string name="empty_search">검색 결과가 없어요</string>
 
     <!-- Detail -->

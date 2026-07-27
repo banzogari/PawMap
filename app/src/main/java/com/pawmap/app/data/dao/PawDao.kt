@@ -42,10 +42,13 @@ interface PawDao {
 
     @Query(
         "SELECT * FROM places WHERE " +
-            "name LIKE '%' || :q || '%' OR category LIKE '%' || :q || '%' " +
-            "OR oneLiner LIKE '%' || :q || '%' OR region LIKE '%' || :q || '%'"
+                "name LIKE '%' || :q || '%' OR category LIKE '%' || :q || '%' " +
+                "OR oneLiner LIKE '%' || :q || '%' OR region LIKE '%' || :q || '%'"
     )
     suspend fun search(q: String): List<PlaceEntity>
+
+    @Query("SELECT * FROM places WHERE categoryType = :type")
+    suspend fun getPlacesByCategoryType(type: String): List<PlaceEntity>
 
     @Query("SELECT COUNT(*) FROM places")
     suspend fun placeCount(): Int
@@ -59,9 +62,9 @@ interface PawDao {
 
     @Query(
         "SELECT l.id AS id, l.name AS name, l.iconType AS iconType, " +
-            "l.isDefault AS isDefault, l.sortOrder AS sortOrder, " +
-            "(SELECT COUNT(*) FROM list_place_cross_ref x WHERE x.listId = l.id) AS placeCount " +
-            "FROM place_lists l ORDER BY l.sortOrder ASC, l.id ASC"
+                "l.isDefault AS isDefault, l.sortOrder AS sortOrder, " +
+                "(SELECT COUNT(*) FROM list_place_cross_ref x WHERE x.listId = l.id) AS placeCount " +
+                "FROM place_lists l ORDER BY l.sortOrder ASC, l.id ASC"
     )
     fun observeListsWithCount(): Flow<List<ListWithCount>>
 
@@ -86,8 +89,8 @@ interface PawDao {
 
     @Query(
         "SELECT p.* FROM places p " +
-            "INNER JOIN list_place_cross_ref x ON p.id = x.placeId " +
-            "WHERE x.listId = :listId ORDER BY x.addedAt ASC"
+                "INNER JOIN list_place_cross_ref x ON p.id = x.placeId " +
+                "WHERE x.listId = :listId ORDER BY x.addedAt ASC"
     )
     fun observePlacesInList(listId: Long): Flow<List<PlaceEntity>>
 
