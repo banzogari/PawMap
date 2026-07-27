@@ -33,12 +33,10 @@ class TripMainFragment : Fragment() {
         vm.ongoingTrip.observe(viewLifecycleOwner) { trip ->
             ongoing = trip
             if (trip != null) {
-                binding.tvCreateTitle.text = "여행 이어보기"
-                binding.tvCreateSub.text = trip.name
+                binding.tvCreateTitle.text = "여행 이어보기 · ${trip.name}"
                 binding.icCreate.setImageResource(R.drawable.ic_flight)
             } else {
                 binding.tvCreateTitle.text = getString(R.string.create_trip)
-                binding.tvCreateSub.text = getString(R.string.create_trip_sub)
                 binding.icCreate.setImageResource(R.drawable.ic_add)
             }
         }
