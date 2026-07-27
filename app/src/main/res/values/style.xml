@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Category filter chips on the map/search screen (Figma pill style). -->
+    <style name="Widget.PawMap.Chip.Filter" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/sel_chip_bg</item>
+        <item name="chipStrokeColor">@color/sel_chip_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipCornerRadius">20dp</item>
+        <item name="chipIconTint">@color/sel_chip_text</item>
+        <item name="chipIconSize">18dp</item>
+        <item name="android:textColor">@color/sel_chip_text</item>
+        <item name="checkedIconVisible">false</item>
+    </style>
+</resources>

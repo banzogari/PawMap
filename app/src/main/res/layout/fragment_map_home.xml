@@ -92,14 +92,14 @@
                 android:layout_height="24dp"
                 android:src="@drawable/ic_pawmap_logo"
                 android:contentDescription="PawMap"
-                app:tint="@color/cat_cafe" />
+                app:tint="@color/pawmap_primary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:text="PawMap"
-                android:textColor="@color/cat_cafe"
+                android:textColor="@color/pawmap_primary"
                 android:textSize="24sp"
                 android:fontFamily="@font/rubik_bubbles" />
         </LinearLayout>
@@ -149,67 +149,43 @@
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipAll"
-                    style="@style/Widget.Material3.Chip.Filter"
+                    style="@style/Widget.PawMap.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
-                    android:text="@string/cat_all"
-                    android:textColor="@color/sel_chip_text"
-                    app:checkedIconVisible="false"
-                    app:chipBackgroundColor="@color/sel_chip_bg"
-                    app:chipStrokeWidth="0dp" />
+                    android:text="@string/cat_all" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipCafe"
-                    style="@style/Widget.Material3.Chip.Filter"
+                    style="@style/Widget.PawMap.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/cat_cafe"
-                    android:textColor="@color/sel_chip_text"
-                    app:checkedIconVisible="false"
-                    app:chipBackgroundColor="@color/sel_chip_bg"
-                    app:chipIcon="@drawable/ic_cafe"
-                    app:chipIconTint="@color/sel_chip_text"
-                    app:chipStrokeWidth="0dp" />
+                    app:chipIcon="@drawable/ic_cafe" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipFood"
-                    style="@style/Widget.Material3.Chip.Filter"
+                    style="@style/Widget.PawMap.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/cat_food"
-                    android:textColor="@color/sel_chip_text"
-                    app:checkedIconVisible="false"
-                    app:chipBackgroundColor="@color/sel_chip_bg"
-                    app:chipIcon="@drawable/ic_restaurant"
-                    app:chipIconTint="@color/sel_chip_text"
-                    app:chipStrokeWidth="0dp" />
+                    app:chipIcon="@drawable/ic_restaurant" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipStay"
-                    style="@style/Widget.Material3.Chip.Filter"
+                    style="@style/Widget.PawMap.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/cat_stay"
-                    android:textColor="@color/sel_chip_text"
-                    app:checkedIconVisible="false"
-                    app:chipBackgroundColor="@color/sel_chip_bg"
-                    app:chipIcon="@drawable/ic_hotel"
-                    app:chipIconTint="@color/sel_chip_text"
-                    app:chipStrokeWidth="0dp" />
+                    app:chipIcon="@drawable/ic_hotel" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipTravel"
-                    style="@style/Widget.Material3.Chip.Filter"
+                    style="@style/Widget.PawMap.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/cat_travel"
-                    android:textColor="@color/sel_chip_text"
-                    app:checkedIconVisible="false"
-                    app:chipBackgroundColor="@color/sel_chip_bg"
-                    app:chipIcon="@drawable/ic_park"
-                    app:chipIconTint="@color/sel_chip_text"
-                    app:chipStrokeWidth="0dp" />
+                    app:chipIcon="@drawable/ic_park" />
             </com.google.android.material.chip.ChipGroup>
         </HorizontalScrollView>
     </LinearLayout>

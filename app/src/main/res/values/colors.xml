@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="pawmap_primary">#F1B86C</color> <!-- Figma 로고 골드/탄 -->
+    <color name="pawmap_primary">#6FAAE4</color> <!-- Figma 로고/브랜드 블루 (= accent / cat_cafe) -->
     <!-- Surfaces (light theme) -->
     <color name="bg">#FBFBFA</color>
     <color name="surface">#FFFFFF</color>
