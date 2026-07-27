@@ -1,16 +1,12 @@
 package com.pawmap.app.ui.map
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -30,7 +26,6 @@ import com.pawmap.app.data.entity.PlaceEntity
 import com.pawmap.app.databinding.FragmentMapHomeBinding
 import com.pawmap.app.ui.common.MapViewLifecycleObserver
 import com.pawmap.app.ui.common.category
-import com.pawmap.app.ui.search.PlaceRow
 import com.pawmap.app.ui.search.SearchResultAdapter
 
 class MapHomeFragment : Fragment(), OnMapReadyCallback {
@@ -84,15 +79,10 @@ class MapHomeFragment : Fragment(), OnMapReadyCallback {
             pendingFit = false
         }
 
-        binding.etSearch.setOnEditorActionListener { v, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                runSearch(v.text?.toString().orEmpty()); true
-            } else false
+        // Tapping the search bar opens the dedicated search screen.
+        binding.searchBar.setOnClickListener {
+            findNavController().navigate(R.id.action_map_to_search)
         }
-        binding.etSearch.doAfterTextChanged {
-            binding.btnClear.visibility = if (it.isNullOrEmpty()) View.GONE else View.VISIBLE
-        }
-        binding.btnClear.setOnClickListener { clearSearch() }
 
         binding.chipAll.setOnClickListener { runSearch("") }
         binding.chipCafe.setOnClickListener { runSearch(getString(R.string.cat_cafe)) }
@@ -115,22 +105,11 @@ class MapHomeFragment : Fragment(), OnMapReadyCallback {
         sheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
     }
 
+    // Category-chip filtering shows its results inline in the bottom sheet.
     private fun runSearch(query: String) {
-        if (binding.etSearch.text?.toString() != query) binding.etSearch.setText(query)
-        binding.etSearch.setSelection(binding.etSearch.text?.length ?: 0)
-        hideKeyboard()
         pendingFit = true
         vm.search(query)
         sheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-    }
-
-    private fun clearSearch() {
-        binding.etSearch.setText("")
-        binding.chipAll.isChecked = true
-        hideKeyboard()
-        sheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
-        pendingFit = true
-        vm.search("") // restore all markers
     }
 
     override fun onMapReady(map: NaverMap) {
@@ -180,12 +159,6 @@ class MapHomeFragment : Fragment(), OnMapReadyCallback {
                 map.moveCamera(CameraUpdate.fitBounds(boundsBuilder.build(), dp(64)))
             }
         }
-    }
-
-    private fun hideKeyboard() {
-        val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(binding.etSearch.windowToken, 0)
-        binding.etSearch.clearFocus()
     }
 
     override fun onRequestPermissionsResult(

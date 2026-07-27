@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="pawmap_primary">#6FAAE4</color>
-    <!-- Surfaces (dark theme) -->
-    <color name="bg">#121214</color>
-    <color name="surface">#1C1C1E</color>
-    <color name="surface_variant">#2A2A2C</color>
-    <color name="surface_elevated">#2C2C2E</color>
-    <color name="outline">#3A3A3C</color>
+    <color name="pawmap_primary">#F1B86C</color> <!-- Figma 로고 골드/탄 -->
+    <!-- Surfaces (light theme) -->
+    <color name="bg">#FBFBFA</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F1F3F5</color>
+    <color name="surface_elevated">#FFFFFF</color>
+    <color name="outline">#E4E6EA</color>
 
     <!-- Text -->
-    <color name="text_primary">#F2F2F5</color>
-    <color name="text_secondary">#9A9AA0</color>
-    <color name="text_tertiary">#6E6E73</color>
+    <color name="text_primary">#1C1C1E</color>
+    <color name="text_secondary">#6E6E73</color>
+    <color name="text_tertiary">#A6A6AB</color>
 
     <!-- Accent -->
-    <color name="accent">#3B82F6</color>
-    <color name="accent_dark">#12325C</color>
-    <color name="accent_container">#16273D</color>
+    <color name="accent">#6FAAE4</color>
+    <color name="accent_dark">#4E8CCB</color>
+    <color name="accent_container">#E6F0FB</color>
 
     <!-- Status / semantic -->
-    <color name="positive">#4ADE80</color>
-    <color name="positive_container">#14331F</color>
-    <color name="negative">#F87171</color>
-    <color name="negative_container">#3A1A1A</color>
-    <color name="warning">#F59E0B</color>
-    <color name="warning_container">#3A2A0A</color>
+    <color name="positive">#2F822A</color>
+    <color name="positive_container">#DFECDE</color>
+    <color name="negative">#D03B3B</color>
+    <color name="negative_container">#FBE4E4</color>
+    <color name="warning">#D9902F</color>
+    <color name="warning_container">#FAEFD8</color>
 
     <!-- Category marker colors -->
-    <color name="cat_cafe">#3B82F6</color>
-    <color name="cat_food">#EF4444</color>
-    <color name="cat_stay">#F59E0B</color>
-    <color name="cat_travel">#22C55E</color>
-    <color name="cat_default">#8E8E93</color>
+    <color name="cat_cafe">#6FAAE4</color>
+    <color name="cat_food">#E4572E</color>
+    <color name="cat_stay">#F1B86C</color>
+    <color name="cat_travel">#2F822A</color>
+    <color name="cat_default">#ADADAE</color>
 
     <!-- Map placeholder -->
-    <color name="map_bg">#132116</color>
-    <color name="map_road">#2C3A2E</color>
-    <color name="map_block">#20321F</color>
+    <color name="map_bg">#E9ECEA</color>
+    <color name="map_road">#F6F7F6</color>
+    <color name="map_block">#DDE4DD</color>
 
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
-    <color name="scrim">#99000000</color>
+    <color name="scrim">#66000000</color>
 </resources>
