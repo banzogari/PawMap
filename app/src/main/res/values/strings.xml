@@ -46,6 +46,7 @@
     <string name="create_trip">여행 일정 만들기</string>
     <string name="create_trip_sub">새로운 여행을 떠나보세요.</string>
     <string name="past_trips">지난 여행 불러오기</string>
+    <string name="trip_saved">여행 일정이 저장되었어요</string>
     <string name="past_trips_title">지난 여행</string>
     <string name="trip_register">여행 일정 등록</string>
     <string name="pick_dates">여행 날짜를 선택해주세요.</string>

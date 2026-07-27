@@ -23,6 +23,7 @@ import com.pawmap.app.databinding.FragmentTripDetailBinding
 import com.pawmap.app.databinding.ItemTripPlaceBinding
 import com.pawmap.app.ui.common.MapViewLifecycleObserver
 import com.pawmap.app.util.DateUtils
+import android.widget.Toast
 
 class TripDetailFragment : Fragment() {
 
@@ -64,7 +65,9 @@ class TripDetailFragment : Fragment() {
             renderMapMarkers(vm.dayPlaces.value ?: emptyList())
         }
 
-        binding.btnBack.setOnClickListener { findNavController().popBackStack() }
+        binding.btnSave.setOnClickListener {
+            Toast.makeText(requireContext(), getString(R.string.trip_saved), Toast.LENGTH_SHORT).show()
+        }
         binding.btnEdit.setOnClickListener { showRenameDialog() }
         binding.btnAddPlace.setOnClickListener {
             findNavController().navigate(
