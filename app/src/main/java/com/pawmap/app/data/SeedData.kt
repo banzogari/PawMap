@@ -59,7 +59,7 @@ object SeedData {
             facilitiesText = "반려동물 용품, 급수대"
         ),
         PlaceEntity(
-            id = 4, name = "댕댕뮤지엄", category = "박물관", categoryType = "MUSEUM",
+            id = 4, name = "댕댕뮤지엄", category = "박물관", categoryType = "TRAVEL",
             region = "서울 종로구 삼청동", address = "서울 종로구 삼청로 22",
             phone = "02-6666-7777", oneLiner = "반려견과 함께 관람하는 이색 전시 공간",
             openNow = true, hoursText = "18:00에 영업 종료",

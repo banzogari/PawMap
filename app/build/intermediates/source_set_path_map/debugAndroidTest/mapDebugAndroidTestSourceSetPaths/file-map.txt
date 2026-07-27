@@ -1,6 +1,0 @@
-com.pawmap.app.test.app-annotation-experimental-1.4.1-0 /Users/banzogari/.gradle/caches/8.13/transforms/70567ae4503eaa1d8655778d46d5ca3e/transformed/annotation-experimental-1.4.1/res
-com.pawmap.app.test.app-core-1.5.0-1 /Users/banzogari/.gradle/caches/8.13/transforms/ab85fb1fdea6088d99e455b836100ac4/transformed/core-1.5.0/res
-com.pawmap.app.test.app-androidTest-2 /Users/banzogari/Desktop/2026/GURU2/PawMap/app/build/generated/res/resValues/androidTest/debug
-com.pawmap.app.test.app-mergeDebugAndroidTestResources-3 /Users/banzogari/Desktop/2026/GURU2/PawMap/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
-com.pawmap.app.test.app-mergeDebugAndroidTestResources-4 /Users/banzogari/Desktop/2026/GURU2/PawMap/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
-com.pawmap.app.test.app-debugAndroidTest-5 /Users/banzogari/Desktop/2026/GURU2/PawMap/app/build/intermediates/merged_res/debugAndroidTest/mergeDebugAndroidTestResources
