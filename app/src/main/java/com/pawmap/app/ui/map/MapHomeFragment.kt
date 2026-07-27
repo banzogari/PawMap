@@ -27,6 +27,7 @@ import com.pawmap.app.databinding.FragmentMapHomeBinding
 import com.pawmap.app.ui.common.MapViewLifecycleObserver
 import com.pawmap.app.ui.common.category
 import com.pawmap.app.ui.search.SearchResultAdapter
+import com.naver.maps.map.overlay.OverlayImage
 
 class MapHomeFragment : Fragment(), OnMapReadyCallback {
 
@@ -138,7 +139,10 @@ class MapHomeFragment : Fragment(), OnMapReadyCallback {
             val pos = LatLng(p.lat, p.lng)
             val marker = Marker().apply {
                 position = pos
-                iconTintColor = ContextCompat.getColor(requireContext(), p.category().colorRes)
+                // Figma Location Picker 핀 (카테고리별 아이콘 포함)
+                icon = OverlayImage.fromResource(p.category().markerRes)
+                width = dp(34)
+                height = dp(46)
                 captionText = p.name
                 tag = p.id
                 this.map = map
