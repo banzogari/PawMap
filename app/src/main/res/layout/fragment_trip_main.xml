@@ -32,92 +32,105 @@
             android:fontFamily="@font/rubik_bubbles" />
     </LinearLayout>
 
-    <!-- ================= 히어로 일러스트 =================
-         언덕(bg_02~04, 각 vector에 fill 색상 baked-in) 위에 코기 + 나무 + 구름 배치.
-         나무/구름의 좌표는 Figma에서 정확한 x/y를 못 뽑아 눈대중 배치함.
-         실기기·프리뷰에서 스크린샷과 비교해 margin 값 미세 조정 필요. -->
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:layout_marginTop="4dp"
+        android:layout_height="257dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_header_gradient"
         android:clipChildren="false">
 
-        <!-- 언덕 (뒤 → 앞 순서) -->
+        <!-- Trees (가장 뒤) -->
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:src="@drawable/bg_03" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="18dp"
-            android:src="@drawable/bg_02" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|start"
-            android:layout_marginStart="8dp"
-            android:src="@drawable/bg_04" />
-
-        <!-- 구름 -->
-        <ImageView
-            android:layout_width="42dp"
-            android:layout_height="24dp"
+            android:layout_width="29.22dp"
+            android:layout_height="47.5dp"
             android:layout_gravity="top|start"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/ic_cloud_01" />
-
-        <ImageView
-            android:layout_width="42dp"
-            android:layout_height="24dp"
-            android:layout_gravity="top|center_horizontal"
-            android:layout_marginTop="24dp"
-            android:src="@drawable/ic_cloud_02" />
-
-        <ImageView
-            android:layout_width="42dp"
-            android:layout_height="24dp"
-            android:layout_gravity="top|end"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="14dp"
-            android:src="@drawable/ic_cloud_03" />
-
-        <!-- 나무 -->
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="48dp"
-            android:layout_gravity="bottom|start"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="115dp"
             android:src="@drawable/ic_tree_03" />
 
         <ImageView
-            android:layout_width="26dp"
-            android:layout_height="43dp"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="36dp"
-            android:src="@drawable/ic_tree_01" />
-
-        <ImageView
-            android:layout_width="14dp"
-            android:layout_height="23dp"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="16dp"
+            android:layout_width="13.84dp"
+            android:layout_height="22.5dp"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="144dp"
             android:src="@drawable/ic_tree_02" />
 
-        <!-- 코기 마스코트 -->
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="209dp"
-            android:layout_gravity="top|center_horizontal"
-            android:layout_marginTop="4dp"
-            android:contentDescription="@string/app_name"
+            android:layout_width="26dp"
+            android:layout_height="42.27dp"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="348dp"
+            android:layout_marginTop="137dp"
+            android:src="@drawable/ic_tree_01" />
+
+        <!-- Hills -->
+        <ImageView
+            android:layout_width="84.5dp"
+            android:layout_height="62.5dp"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="160dp"
+            android:src="@drawable/bg_04" />
+
+        <ImageView
+            android:layout_width="343.5dp"
+            android:layout_height="85.4dp"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="171dp"
+            android:src="@drawable/bg_03" />
+
+        <ImageView
+            android:layout_width="108.5dp"
+            android:layout_height="77.42dp"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="284dp"
+            android:layout_marginTop="178.08dp"
+            android:src="@drawable/bg_02" />
+
+        <!-- White content-card backdrop (behind corgi, flows down past hero) -->
+        <ImageView
+            android:layout_width="393dp"
+            android:layout_height="447.85dp"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="201dp"
+            android:src="@drawable/bg_01" />
+
+        <!-- Corgi -->
+        <ImageView
+            android:layout_width="202.82dp"
+            android:layout_height="211.02dp"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="103dp"
+            android:layout_marginTop="12dp"
             android:src="@drawable/logo_dog" />
+
+        <!-- Clouds (가장 앞) -->
+        <ImageView
+            android:layout_width="41.18dp"
+            android:layout_height="23.55dp"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="39dp"
+            android:layout_marginTop="47dp"
+            android:src="@drawable/ic_cloud_03" />
+
+        <ImageView
+            android:layout_width="41.18dp"
+            android:layout_height="23.55dp"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="297dp"
+            android:layout_marginTop="0dp"
+            android:src="@drawable/ic_cloud_02" />
+
+        <ImageView
+            android:layout_width="41.18dp"
+            android:layout_height="23.55dp"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="329dp"
+            android:layout_marginTop="73dp"
+            android:src="@drawable/ic_cloud_01" />
 
     </FrameLayout>
 
@@ -125,31 +138,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/nps_font"
+        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:letterSpacing="0.03"
-        android:lineSpacingExtra="8dp"
         android:text="@string/trip_intro"
         android:textColor="@color/text_primary"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/nps_font"
+        android:layout_marginTop="6dp"
         android:gravity="center"
-        android:letterSpacing="0.01"
         android:text="@string/trip_intro_sub"
-        android:textColor="@color/intro_sub_text"
-        android:textSize="20sp" />
+        android:textColor="@color/text_secondary"
+        android:textSize="16sp" />
 
     <LinearLayout
         android:id="@+id/cardCreate"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="56dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/bg_primary_button"
@@ -160,9 +168,10 @@
 
         <ImageView
             android:id="@+id/icCreate"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/ic_plus" />
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_add"
+            app:tint="@color/white" />
 
         <TextView
             android:id="@+id/tvCreateTitle"
@@ -171,19 +180,18 @@
             android:layout_marginStart="8dp"
             android:maxLines="1"
             android:ellipsize="end"
-            android:fontFamily="@font/nps_font"
-            android:letterSpacing="0.01"
             android:text="@string/create_trip"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="17sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/btnPastTrips"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="56dp"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/bg_outline_button"
         android:clickable="true"
         android:focusable="true"
@@ -191,19 +199,19 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:src="@drawable/ic_timer" />
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_history"
+            app:tint="@color/text_primary" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/nps_font"
-            android:letterSpacing="0.01"
             android:text="@string/past_trips"
             android:textColor="@color/text_primary"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

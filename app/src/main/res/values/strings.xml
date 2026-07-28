@@ -41,8 +41,7 @@
     <string name="places_count">%1$d개 장소</string>
 
     <!-- Trip -->
-    <string name="trip_intro">반려견과 함께하는 자유로운 여행을 계획해보세요!</string>
-    <string name="trip_intro_sub">어디로 떠나볼까요?</string>
+    <string name="trip_intro">반려견과 함께하는\n자유로운 여행을\n계획해보세요!</string>    <string name="trip_intro_sub">어디로 떠나볼까요?</string>
     <string name="create_trip">여행 일정 만들기</string>
     <string name="create_trip_sub">새로운 여행을 떠나보세요.</string>
     <string name="past_trips">지난 여행 불러오기</string>
