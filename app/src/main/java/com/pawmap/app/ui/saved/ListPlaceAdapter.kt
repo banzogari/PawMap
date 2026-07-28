@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pawmap.app.data.entity.PlaceEntity
 import com.pawmap.app.databinding.ItemListPlaceBinding
 import com.pawmap.app.ui.common.category
+import com.pawmap.app.R
 
 class ListPlaceAdapter(
     private val onClick: (Long) -> Unit,
