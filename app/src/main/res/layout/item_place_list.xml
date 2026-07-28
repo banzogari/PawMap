@@ -3,23 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackground"
+    android:layout_marginHorizontal="21dp"
+    android:layout_marginTop="12dp"
+    android:background="@drawable/bg_card_outline_gray"
+    android:foreground="?attr/selectableItemBackground"
     android:gravity="center_vertical"
+    android:minHeight="76dp"
     android:orientation="horizontal"
-    android:paddingHorizontal="16dp"
-    android:paddingVertical="16dp">
+    android:paddingHorizontal="14dp"
+    android:paddingVertical="13dp">
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:src="@drawable/ic_flag"
         app:tint="@color/cat_travel" />
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="12dp"
         android:layout_weight="1"
         android:orientation="vertical">
 
@@ -27,9 +31,13 @@
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nps_font"
+            android:letterSpacing="0.01"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:text="가고 싶은 장소"
-            android:textColor="@color/text_primary"
-            android:textSize="18sp"
+            android:textColor="@color/input_hint"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -37,9 +45,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
+            android:fontFamily="@font/nps_font"
+            android:letterSpacing="0.01"
             android:text="4개 장소"
-            android:textColor="@color/text_secondary"
-            android:textSize="14sp" />
+            android:textColor="@color/input_hint"
+            android:textSize="11sp" />
     </LinearLayout>
 
     <ImageButton
@@ -49,5 +59,5 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="메뉴"
         android:src="@drawable/ic_more_vert"
-        app:tint="@color/text_secondary" />
+        app:tint="@color/input_hint" />
 </LinearLayout>

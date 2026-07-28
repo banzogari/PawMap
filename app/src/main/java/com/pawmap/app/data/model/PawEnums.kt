@@ -29,7 +29,7 @@ enum class BadgeType { POSITIVE, WARN, NEGATIVE, NEUTRAL }
 /** Icon shown next to a saved-place list. */
 enum class ListIconType(@DrawableRes val iconRes: Int, val tintRes: Int) {
     FLAG(R.drawable.ic_flag, R.color.cat_travel),
-    HEART(R.drawable.ic_favorite, R.color.negative),
+    HEART(R.drawable.ic_favorite, R.color.heart_pink),
     BOOKMARK(R.drawable.ic_bookmark, R.color.accent),
     CUSTOM(R.drawable.ic_bookmark, R.color.text_secondary);
 

@@ -4,58 +4,87 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
-    android:orientation="vertical"
-    android:paddingTop="12dp">
+    android:orientation="vertical">
 
+    <!-- PawMap logo header -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_pawmap_logo"
+            android:contentDescription="PawMap"
+            app:tint="@color/pawmap_primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="PawMap"
+            android:textColor="@color/pawmap_primary"
+            android:textSize="24sp"
+            android:fontFamily="@font/rubik_bubbles" />
+    </LinearLayout>
+
+    <!-- Search bar with shadow -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginHorizontal="16dp"
-        android:background="@drawable/bg_search_pill"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="14dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_search_shadow"
+        android:elevation="4dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="18dp">
 
         <ImageView
-            android:layout_width="22dp"
-            android:layout_height="22dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:src="@drawable/ic_search"
-            app:tint="@color/text_secondary" />
+            app:tint="#ADADAE" />
 
         <EditText
             android:id="@+id/etSearch"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
+            android:fontFamily="@font/nps_font"
             android:hint="@string/saved_search_hint"
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:maxLines="1"
             android:paddingStart="10dp"
             android:textColor="@color/text_primary"
-            android:textColorHint="@color/text_tertiary"
-            android:textSize="16sp" />
+            android:textColorHint="#ADADAE"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <!-- "목록" tab label -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginStart="14dp"
         android:layout_marginTop="16dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nps_font"
             android:text="목록"
             android:textColor="@color/accent"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="14sp" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="3dp"
             android:layout_marginTop="6dp"
             android:background="@color/accent" />
     </LinearLayout>
@@ -63,13 +92,15 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/outline" />
+        android:background="#ADADAE" />
 
+    <!-- + 새 목록 button -->
+    <!-- + 새 목록 button -->
     <LinearLayout
         android:id="@+id/btnNewList"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginHorizontal="16dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="21dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/bg_new_list_button"
         android:clickable="true"
@@ -77,13 +108,21 @@
         android:gravity="center"
         android:orientation="horizontal">
 
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_add"
+            app:tint="@color/accent" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/new_list"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/nps_font"
+            android:letterSpacing="0.01"
+            android:text="새 목록"
             android:textColor="@color/accent"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

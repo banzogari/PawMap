@@ -25,6 +25,7 @@
     <!-- Status / semantic -->
     <color name="positive">#2F822A</color>
     <color name="positive_container">#DFECDE</color>
+    <color name="heart_pink">#EC81AA</color>
     <color name="negative">#D03B3B</color>
     <color name="negative_container">#FBE4E4</color>
     <color name="warning">#D9902F</color>
