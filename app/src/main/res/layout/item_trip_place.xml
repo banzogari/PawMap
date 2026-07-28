@@ -12,16 +12,15 @@
         android:layout_height="match_parent">
 
         <View
-            android:layout_width="2dp"
+            android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:background="@color/outline" />
+            android:background="#ADADAE" />
 
         <FrameLayout
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_gravity="center_horizontal|top"
-            android:layout_marginTop="16dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_horizontal|center_vertical"
             android:background="@drawable/bg_circle_red">
 
             <TextView
@@ -29,10 +28,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:fontFamily="@font/nps_font"
+                android:letterSpacing="0.01"
                 android:text="1"
                 android:textColor="@color/white"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                android:textSize="11sp" />
         </FrameLayout>
     </FrameLayout>
 
@@ -43,10 +43,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_weight="1"
-        android:background="@drawable/bg_card"
+        android:background="@drawable/bg_card_accent"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="10dp">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -60,19 +61,22 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:ellipsize="end"
+                android:fontFamily="@font/nps_font"
+                android:letterSpacing="0.01"
                 android:text="경포해변"
-                android:textColor="@color/text_primary"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:textColor="#090B14"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tvCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
+                android:fontFamily="@font/nps_font"
+                android:letterSpacing="0.01"
                 android:text="여행지"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
+                android:textColor="@color/input_hint"
+                android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -87,16 +91,18 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/ic_image"
-                app:tint="@color/text_secondary" />
+                android:src="@drawable/ic_add_a_photo"
+                app:tint="#979797" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/nps_font"
+                android:letterSpacing="0.01"
                 android:text="@string/photo_memo"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
+                android:textColor="#979797"
+                android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
