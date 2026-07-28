@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="56dp"
+    android:height="45dp"
+    android:viewportWidth="56"
+    android:viewportHeight="45">
+
+  <!-- 말풍선 -->
+  <path
+      android:fillColor="#D1E5F8"
+      android:pathData="M28,1C42.9,1 55,9.5 55,20C55,30.5 42.9,39 28,39C24.8,39 21.7,38.6 18.9,37.9L8,44L11.5,34.2C5.1,30.7 1,25.7 1,20C1,9.5 13.1,1 28,1Z" />
+
+  <!-- 북마크 -->
+  <path
+      android:fillColor="#6FAAE4"
+      android:pathData="M21.5,11.5H34.5V29L28,24.5L21.5,29V11.5Z" />
+</vector>

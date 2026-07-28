@@ -77,15 +77,57 @@
             android:paddingTop="8dp"
             android:paddingBottom="16dp" />
 
-        <TextView
+        <LinearLayout
             android:id="@+id/tvEmpty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/nps_font"
-            android:text="@string/empty_list"
-            android:textColor="@color/text_secondary"
-            android:textSize="16sp"
-            android:visibility="gone" />
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <FrameLayout
+                android:layout_width="175dp"
+                android:layout_height="141dp">
+
+                <ImageView
+                    android:layout_width="98dp"
+                    android:layout_height="121dp"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginTop="20dp"
+                    android:contentDescription="저장한 장소 없음"
+                    android:src="@drawable/logo_dog_empty" />
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="119dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_bubble_bookmark" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/nps_font"
+                android:letterSpacing="0.01"
+                android:text="저장한 장소가 없어요"
+                android:textColor="#68696A"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="191dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/nps_font"
+                android:gravity="center"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="6dp"
+                android:text="마음에 드는 장소를 저장하고\n언제든 다시 찾아보세요!"
+                android:textColor="#68696A"
+                android:textSize="16sp" />
+        </LinearLayout>
     </FrameLayout>
 </LinearLayout>
