@@ -147,6 +147,9 @@ class MapHomeFragment : Fragment(), OnMapReadyCallback {
                 height = dp(46)
                 captionText = p.name
                 tag = p.id
+                // 줌 레벨 16 미만(광역 뷰)에서는 핀 숨김 — 핀 겹침 방지
+                minZoom = 16.0
+                isMinZoomInclusive = true
                 this.map = map
                 setOnClickListener {
                     findNavController().navigate(
