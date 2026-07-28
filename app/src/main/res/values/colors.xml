@@ -7,6 +7,7 @@
     <color name="surface_variant">#F1F3F5</color>
     <color name="surface_elevated">#FFFFFF</color>
     <color name="outline">#E4E6EA</color>
+    <color name="input_hint">#68696A</color>
 
     <!-- Text -->
     <color name="text_primary">#1C1C1E</color>

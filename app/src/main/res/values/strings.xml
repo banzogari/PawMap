@@ -50,7 +50,7 @@
     <string name="trip_register">여행 일정 등록</string>
     <string name="pick_dates">여행 날짜를 선택해주세요.</string>
     <string name="trip_name_q">여행 이름을 지어주세요!</string>
-    <string name="trip_name_hint">예: 강릉·속초 여행</string>
+    <string name="trip_name_hint">여행 이름을 입력해주세요</string>
     <string name="pet_name_q">함께 동반할 반려동물 이름을 입력해주세요</string>
     <string name="pet_name_hint">이름 입력 후 추가</string>
     <string name="pet_name_help">이름을 입력하고 Enter를 누르면 태그로 추가돼요</string>
