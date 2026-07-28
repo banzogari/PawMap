@@ -25,13 +25,25 @@
             app:tint="@color/text_primary" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/nps_font"
+            android:letterSpacing="0.01"
             android:text="@string/past_trips_title"
-            android:textColor="@color/text_primary"
-            android:textSize="20sp"
+            android:textColor="#000000"
+            android:textSize="16sp"
             android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btnMore"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="더보기"
+            android:src="@drawable/ic_more_vert"
+            app:tint="@color/input_hint" />
     </LinearLayout>
 
     <FrameLayout
@@ -44,6 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
+            android:paddingTop="12dp"
             android:paddingBottom="16dp" />
 
         <TextView
