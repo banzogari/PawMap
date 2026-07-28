@@ -110,8 +110,7 @@ class PlaceDetailFragment : Fragment() {
         val icon = if (saved) R.drawable.ic_bookmark_filled else R.drawable.ic_bookmark
         binding.icSave.setImageResource(icon)
         binding.btnSaveTop.setImageResource(icon)
-        val tint = if (saved) R.color.accent else R.color.text_primary
-        binding.icSave.setColorFilter(ContextCompat.getColor(requireContext(), tint))
+        binding.icSave.setColorFilter(ContextCompat.getColor(requireContext(), R.color.accent))
         binding.tvSaveLabel.text = if (saved) getString(R.string.saved) else getString(R.string.save)
         binding.btnSaveTop.setColorFilter(
             ContextCompat.getColor(requireContext(), if (saved) R.color.accent else R.color.white)
@@ -124,7 +123,7 @@ class PlaceDetailFragment : Fragment() {
                 is PlaceDetailViewModel.AddTripResult.Added ->
                     Toast.makeText(
                         requireContext(),
-                        "‘${result.tripName}’ Day 1에 추가했어요",
+                        "'${result.tripName}' Day 1에 추가했어요",
                         Toast.LENGTH_SHORT
                     ).show()
 

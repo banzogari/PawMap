@@ -1,172 +1,401 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
-    android:orientation="vertical">
+    android:fillViewport="true">
 
-    <!-- Top bar: back / save -->
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="8dp"
-        android:paddingTop="8dp">
+        android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/back"
-            android:src="@drawable/ic_arrow_back"
-            app:tint="@color/text_primary" />
+        <!-- 사진 헤더 -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:background="#D1E5F8">
 
-        <ImageButton
-            android:id="@+id/btnSaveTop"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="end"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/save"
-            android:src="@drawable/ic_bookmark"
-            app:tint="@color/text_primary" />
-    </FrameLayout>
+            <ImageView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:contentDescription="사진 없음"
+                android:src="@drawable/ic_image"
+                app:tint="@color/accent" />
 
-    <!-- Title -->
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="4dp"
-        android:textColor="@color/text_primary"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        tools:text="장소 이름" />
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/back"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="#68696A" />
 
-    <TextView
-        android:id="@+id/tvSub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="4dp"
-        android:textColor="@color/text_secondary"
-        android:textSize="14sp"
-        tools:text="카페 · 서울 마포구" />
+            <ImageButton
+                android:id="@+id/btnSaveTop"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/save"
+                android:src="@drawable/ic_bookmark"
+                app:tint="@color/white" />
 
-    <!-- 개요 / 정보 tabs -->
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:background="@color/bg"
-        app:tabIndicatorColor="@color/accent"
-        app:tabSelectedTextColor="@color/accent"
-        app:tabTextColor="@color/text_secondary">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/nps_font"
+                android:text="1/8"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </FrameLayout>
 
-        <com.google.android.material.tabs.TabItem
+        <!-- 이름 / 카테고리·지역 -->
+        <TextView
+            android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="개요" />
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/nps_font"
+            android:letterSpacing="0.01"
+            android:textColor="#68696A"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:text="댕댕뮤지엄" />
 
-        <com.google.android.material.tabs.TabItem
+        <TextView
+            android:id="@+id/tvSub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="정보" />
-    </com.google.android.material.tabs.TabLayout>
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/nps_font"
+            android:letterSpacing="0.01"
+            android:textColor="#68696A"
+            android:textSize="11sp"
+            tools:text="박물관 • 서울 종로구 삼청동" />
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:fillViewport="true">
+        <!-- 저장 / 여행 일정에 추가 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="23dp"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/btnSave"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_pill_outline_accent"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/icSave"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:contentDescription="@string/save"
+                    android:src="@drawable/ic_bookmark"
+                    app:tint="@color/accent" />
+
+                <TextView
+                    android:id="@+id/tvSaveLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/nps_font"
+                    android:letterSpacing="0.01"
+                    android:text="@string/save"
+                    android:textColor="@color/accent"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnAddTrip"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="7dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_pill_outline_accent"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/place_add_trip"
+                    android:src="@drawable/ic_calendar"
+                    app:tint="@color/accent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/nps_font"
+                    android:letterSpacing="0.01"
+                    android:text="여행 일정에 추가"
+                    android:textColor="@color/accent"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 개요 / 정보 탭 -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="12dp"
+            android:background="@android:color/transparent"
+            app:tabIndicatorColor="@color/accent"
+            app:tabIndicatorHeight="3dp"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="#68696A"
+            app:tabTextColor="#68696A">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="개요" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="정보" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ADADAE" />
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- ── Overview section ─────────────────────────────── -->
+            <!-- ── 개요 탭 ── -->
             <LinearLayout
                 android:id="@+id/sectionOverview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingHorizontal="20dp"
-                android:paddingTop="16dp"
+                android:paddingHorizontal="22dp"
+                android:paddingTop="15dp"
                 android:paddingBottom="24dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="주소"
-                    android:textColor="@color/text_tertiary"
-                    android:textSize="13sp" />
+                <!-- 방문가능 배너 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_banner_pet"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="15dp">
 
-                <TextView
-                    android:id="@+id/tvAddress"
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_paw"
+                        app:tint="#2F822A" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/nps_font"
+                        android:letterSpacing="0.02"
+                        android:text="반려동물과 함께 방문 가능한 곳이에요"
+                        android:textColor="#2F822A"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- 주소 -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:textColor="@color/text_primary"
-                    android:textSize="15sp" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="13dp"
+                    android:paddingVertical="11dp">
 
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/ic_place"
+                        app:tint="#68696A" />
+
+                    <TextView
+                        android:id="@+id/tvAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="11dp"
+                        android:fontFamily="@font/nps_font"
+                        android:letterSpacing="0.01"
+                        android:textColor="#68696A"
+                        android:textSize="12sp"
+                        tools:text="서울 종로구 삼청로 22" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#ADADAE" />
+
+                <!-- 영업시간 -->
                 <LinearLayout
                     android:id="@+id/rowHours"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="영업시간"
-                        android:textColor="@color/text_tertiary"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:id="@+id/tvHours"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:textSize="15sp" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="13dp"
+                        android:paddingVertical="11dp">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_schedule"
+                            app:tint="#68696A" />
+
+                        <TextView
+                            android:id="@+id/tvHours"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="11dp"
+                            android:fontFamily="@font/nps_font"
+                            android:letterSpacing="0.01"
+                            android:textSize="12sp"
+                            tools:text="영업 중 • 18:00에 영업 종료" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#ADADAE" />
                 </LinearLayout>
 
+                <!-- 전화 -->
                 <LinearLayout
                     android:id="@+id/rowPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="전화"
-                        android:textColor="@color/text_tertiary"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:id="@+id/tvPhone"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:textColor="@color/text_primary"
-                        android:textSize="15sp" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="13dp"
+                        android:paddingVertical="11dp">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_phone"
+                            app:tint="#68696A" />
+
+                        <TextView
+                            android:id="@+id/tvPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="11dp"
+                            android:fontFamily="@font/nps_font"
+                            android:letterSpacing="0.01"
+                            android:textColor="#68696A"
+                            android:textSize="12sp"
+                            tools:text="02-6666-7777" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#ADADAE" />
                 </LinearLayout>
+
+                <!-- 사진 및 동영상 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/nps_font"
+                    android:letterSpacing="0.01"
+                    android:text="사진 및 동영상"
+                    android:textColor="#68696A"
+                    android:textSize="12sp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:importantForAccessibility="noHideDescendants"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:background="@drawable/bg_photo_placeholder" />
+
+                        <View
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:layout_marginStart="10dp"
+                            android:background="@drawable/bg_photo_placeholder" />
+
+                        <View
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:layout_marginStart="10dp"
+                            android:background="@drawable/bg_photo_placeholder" />
+
+                        <View
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:layout_marginStart="10dp"
+                            android:background="@drawable/bg_photo_placeholder" />
+                    </LinearLayout>
+                </HorizontalScrollView>
             </LinearLayout>
 
-            <!-- ── Info section (verbatim API text) ─────────────── -->
+            <!-- ── 정보 탭 (API 원문 그대로) ── -->
             <LinearLayout
                 android:id="@+id/sectionInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingHorizontal="20dp"
-                android:paddingTop="16dp"
+                android:paddingHorizontal="22dp"
+                android:paddingTop="15dp"
                 android:paddingBottom="24dp"
                 android:visibility="gone">
 
@@ -179,14 +408,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nps_font"
                         android:text="동반 가능 동물"
-                        android:textColor="@color/text_tertiary"
-                        android:textSize="13sp" />
+                        android:textColor="#68696A"
+                        android:textSize="12sp" />
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:contentDescription="동반 가능 동물 목록"
                         android:scrollbars="none">
 
                         <LinearLayout
@@ -200,10 +431,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/nps_font"
                     android:text="견종 크기"
-                    android:textColor="@color/text_tertiary"
-                    android:textSize="13sp" />
+                    android:textColor="#68696A"
+                    android:textSize="12sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -215,173 +447,132 @@
                         android:id="@+id/badgeSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nps_font"
                         android:paddingHorizontal="12dp"
                         android:paddingVertical="7dp"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/badgeMedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
+                        android:fontFamily="@font/nps_font"
                         android:paddingHorizontal="12dp"
                         android:paddingVertical="7dp"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/badgeLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
+                        android:fontFamily="@font/nps_font"
                         android:paddingHorizontal="12dp"
                         android:paddingVertical="7dp"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/rowIndoor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="18dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nps_font"
                         android:text="실내/실외"
-                        android:textColor="@color/text_tertiary"
-                        android:textSize="13sp" />
+                        android:textColor="#68696A"
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/valIndoor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
+                        android:fontFamily="@font/nps_font"
                         android:textColor="@color/text_primary"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/rowFee"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="14dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nps_font"
                         android:text="추가 요금"
-                        android:textColor="@color/text_tertiary"
-                        android:textSize="13sp" />
+                        android:textColor="#68696A"
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/valFee"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
+                        android:fontFamily="@font/nps_font"
                         android:textColor="@color/text_primary"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/rowRestrict"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="14dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nps_font"
                         android:text="제한 사항"
-                        android:textColor="@color/text_tertiary"
-                        android:textSize="13sp" />
+                        android:textColor="#68696A"
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/valRestrict"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
+                        android:fontFamily="@font/nps_font"
                         android:textColor="@color/text_primary"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/rowFacility"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="14dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nps_font"
                         android:text="구비 시설"
-                        android:textColor="@color/text_tertiary"
-                        android:textSize="13sp" />
+                        android:textColor="#68696A"
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/valFacility"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
+                        android:fontFamily="@font/nps_font"
                         android:textColor="@color/text_primary"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>
         </FrameLayout>
-    </androidx.core.widget.NestedScrollView>
-
-    <!-- Bottom action bar: 저장 / 일정에 추가 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/surface"
-        android:elevation="8dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="12dp">
-
-        <LinearLayout
-            android:id="@+id/btnSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="4dp">
-
-            <ImageView
-                android:id="@+id/icSave"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:contentDescription="@string/save"
-                android:src="@drawable/ic_bookmark"
-                app:tint="@color/text_primary" />
-
-            <TextView
-                android:id="@+id/tvSaveLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="@string/save"
-                android:textColor="@color/text_secondary"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btnAddTrip"
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_marginStart="12dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_primary_button"
-            android:text="@string/place_add_trip"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
     </LinearLayout>
-</LinearLayout>
+</androidx.core.widget.NestedScrollView>
