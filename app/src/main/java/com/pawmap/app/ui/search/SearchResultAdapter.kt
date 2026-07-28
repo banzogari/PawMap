@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.pawmap.app.R
 import com.pawmap.app.databinding.ItemSearchResultBinding
 import com.pawmap.app.ui.common.bindBadge
@@ -39,6 +40,13 @@ class SearchResultAdapter(
             )
         )
         b.tvDesc.text = p.oneLiner?.let { " · $it" } ?: ""
+
+        // 사진 3칸: imageUrls 앞에서부터 채우고, 없으면 placeholder 배경 유지
+        val urls = p.imageUrls?.split(",")?.map { it.trim() }?.filter { it.isNotEmpty() }.orEmpty()
+        listOf(b.photo1, b.photo2, b.photo3).forEachIndexed { i, iv ->
+            iv.setImageDrawable(null) // 재활용 뷰 잔상 제거
+            urls.getOrNull(i)?.let { url -> iv.load(url) { crossfade(true) } }
+        }
 
         if (row.isFavorite) {
             b.btnStar.setImageResource(R.drawable.ic_star_filled)

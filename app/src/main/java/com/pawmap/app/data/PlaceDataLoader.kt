@@ -18,12 +18,25 @@ object PlaceDataLoader {
             rawDbFile.path, null, SQLiteDatabase.OPEN_READONLY
         )
 
+        // contentid -> 서브 이미지 URL 목록 (http는 안드로이드 기본 정책에 막히므로 https로 치환)
+        val imageMap = mutableMapOf<String, MutableList<String>>()
+        rawDb.rawQuery(
+            "SELECT contentid, imgurl FROM place_image WHERE imgurl IS NOT NULL AND TRIM(imgurl) != ''",
+            null
+        ).use {
+            while (it.moveToNext()) {
+                val cid = it.getString(0)
+                val url = it.getString(1).replaceFirst("http://", "https://")
+                imageMap.getOrPut(cid) { mutableListOf() }.add(url)
+            }
+        }
+
         val places = mutableListOf<PlaceEntity>()
 
         val cursor = rawDb.rawQuery(
             """
             SELECT p.contentid, p.title, p.city, p.addr1, p.tel,
-                   p.mapx, p.mapy, p.category,
+                   p.mapx, p.mapy, p.category, p.firstimage,
                    d.pet_possible, d.pet_acmpy_type, d.pet_need_matr,
                    d.pet_etc, d.usetime, d.parking, d.overview
             FROM places p
@@ -34,15 +47,23 @@ object PlaceDataLoader {
 
         cursor.use {
             while (it.moveToNext()) {
+                val contentId = it.getString(it.getColumnIndexOrThrow("contentid"))
                 val petPossible = it.getString(it.getColumnIndexOrThrow("pet_possible"))
                 val (small, medium, large) = PlaceMapper.parsePetSize(petPossible)
                 val (sizeBadge, sizeBadgeType) = PlaceMapper.sizeBadgeFrom(petPossible)
                 val categoryLabel = it.getString(it.getColumnIndexOrThrow("category"))
                 val overview = it.getString(it.getColumnIndexOrThrow("overview"))
 
+                // 대표 이미지(firstimage)를 맨 앞에, place_image 서브 이미지를 뒤에 (중복 제거)
+                val firstImage = it.getString(it.getColumnIndexOrThrow("firstimage"))
+                    ?.trim()?.takeIf { u -> u.isNotEmpty() }
+                    ?.replaceFirst("http://", "https://")
+                val subImages = imageMap[contentId].orEmpty()
+                val allImages = (listOfNotNull(firstImage) + subImages).distinct()
+
                 places.add(
                     PlaceEntity(
-                        id = it.getString(it.getColumnIndexOrThrow("contentid")).toLong(),
+                        id = contentId.toLong(),
                         name = it.getString(it.getColumnIndexOrThrow("title")).orEmpty(),
                         category = categoryLabel.orEmpty(),
                         categoryType = PlaceMapper.mapCategoryType(categoryLabel),
@@ -70,7 +91,8 @@ object PlaceDataLoader {
                             it.getString(it.getColumnIndexOrThrow("pet_need_matr")),
                             it.getString(it.getColumnIndexOrThrow("pet_etc"))
                         ).joinToString(" "),
-                        facilitiesText = it.getString(it.getColumnIndexOrThrow("parking"))
+                        facilitiesText = it.getString(it.getColumnIndexOrThrow("parking")),
+                        imageUrls = allImages.takeIf { l -> l.isNotEmpty() }?.joinToString(",")
                     )
                 )
             }

@@ -104,15 +104,33 @@
         android:orientation="horizontal"
         android:weightSum="3">
 
-        <include layout="@layout/view_photo_box" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" />
+        <ImageView
+            android:id="@+id/photo1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_thumb"
+            android:scaleType="centerCrop" />
 
         <Space android:layout_width="8dp" android:layout_height="1dp" />
 
-        <include layout="@layout/view_photo_box" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" />
+        <ImageView
+            android:id="@+id/photo2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_thumb"
+            android:scaleType="centerCrop" />
 
         <Space android:layout_width="8dp" android:layout_height="1dp" />
 
-        <include layout="@layout/view_photo_box" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" />
+        <ImageView
+            android:id="@+id/photo3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_thumb"
+            android:scaleType="centerCrop" />
     </LinearLayout>
 
 </LinearLayout>

@@ -39,7 +39,9 @@ data class PlaceEntity(
     val indoorText: String?,
     val extraFeeText: String?,
     val restrictionsText: String?,
-    val facilitiesText: String?
+    val facilitiesText: String?,
+    // place_image 테이블의 이미지 URL들 (콤마 구분, 없으면 null)
+    val imageUrls: String? = null
 )
 
 @Entity(tableName = "place_lists")
