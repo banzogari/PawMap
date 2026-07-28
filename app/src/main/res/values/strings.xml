@@ -67,4 +67,6 @@
     <string name="no_memo">기록된 메모가 없어요</string>
     <string name="empty_past_trips">지난 여행이 없어요</string>
     <string name="untitled_trip">제목 없는 여행</string>
+    <string name="back">뒤로가기</string>
+    <string name="place_add_trip">일정에 추가</string>
 </resources>
