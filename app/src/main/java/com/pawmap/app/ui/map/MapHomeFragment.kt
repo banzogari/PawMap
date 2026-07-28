@@ -120,14 +120,16 @@ class MapHomeFragment : Fragment(), OnMapReadyCallback {
         map.locationSource = locationSource
         map.uiSettings.isLocationButtonEnabled = false
         map.uiSettings.isZoomControlEnabled = false
-        pendingFit = true
-        renderMarkers(vm.rows.value?.map { it.place } ?: emptyList(), moveCamera = true)
-        pendingFit = false
+        // 항상 시청역 고정 위치로 시작 (저장된 장소 fitBounds 대신)
+        map.moveCamera(CameraUpdate.scrollAndZoomTo(DEFAULT_CENTER, DEFAULT_ZOOM))
+        renderMarkers(vm.rows.value?.map { it.place } ?: emptyList(), moveCamera = false)
     }
 
     override fun onResume() {
         super.onResume()
         vm.refresh() // reflect favorite changes made on other screens
+        // 다른 화면 갔다가 돌아와도 항상 시청역으로 재고정
+        naverMap?.moveCamera(CameraUpdate.scrollAndZoomTo(DEFAULT_CENTER, DEFAULT_ZOOM))
     }
 
     private fun renderMarkers(places: List<PlaceEntity>, moveCamera: Boolean) {
@@ -193,5 +195,8 @@ class MapHomeFragment : Fragment(), OnMapReadyCallback {
 
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1000
+        // 서울시청역 좌표 — 화면 재진입 시 항상 이 위치로 복귀
+        private val DEFAULT_CENTER = LatLng(37.5663, 126.9779)
+        private const val DEFAULT_ZOOM = 15.0
     }
 }
