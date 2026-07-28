@@ -10,26 +10,26 @@
         android:id="@+id/tvDayLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/nps_font"
         android:text="Day 1 · 7.20 (월)"
-        android:textColor="@color/text_primary"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textColor="@color/input_hint"
+        android:textSize="13sp" />
 
     <FrameLayout
         android:id="@+id/photoBox"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="196dp"
         android:layout_marginTop="12dp"
-        android:background="@drawable/bg_photo_large">
+        android:background="@drawable/bg_photo_journal"
+        android:clipToOutline="true">
 
         <ImageView
             android:id="@+id/photoPlaceholder"
-            android:layout_width="46dp"
-            android:layout_height="46dp"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
             android:layout_gravity="center"
-            android:alpha="0.7"
             android:src="@drawable/ic_image"
-            app:tint="#5A8FD6" />
+            app:tint="@color/accent" />
 
         <ImageView
             android:id="@+id/photoImage"
@@ -44,8 +44,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:lineSpacingExtra="4dp"
+        android:fontFamily="@font/nps_font"
+        android:lineSpacingExtra="9dp"
         android:text="기록된 메모가 없어요"
-        android:textColor="@color/text_primary"
-        android:textSize="16sp" />
+        android:textColor="@color/input_hint"
+        android:textSize="13sp" />
 </LinearLayout>
