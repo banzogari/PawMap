@@ -68,7 +68,6 @@ class TripDetailFragment : Fragment() {
         binding.btnSave.setOnClickListener {
             Toast.makeText(requireContext(), getString(R.string.trip_saved), Toast.LENGTH_SHORT).show()
         }
-        binding.btnEdit.setOnClickListener { showRenameDialog() }
         binding.btnAddPlace.setOnClickListener {
             findNavController().navigate(
                 R.id.action_tripDetail_to_addPlace,

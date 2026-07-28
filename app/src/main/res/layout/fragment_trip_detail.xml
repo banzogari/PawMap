@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingHorizontal="16dp">
+        android:paddingHorizontal="22dp">
 
         <LinearLayout
             android:id="@+id/btnSave"
@@ -24,8 +24,8 @@
             android:padding="6dp">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:src="@drawable/ic_bookmark"
                 app:tint="@color/accent" />
 
@@ -33,64 +33,60 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
+                android:fontFamily="@font/nps_font"
+                android:letterSpacing="0.01"
                 android:text="@string/save"
                 android:textColor="@color/accent"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="강릉·속초 여행"
-                android:textColor="@color/text_primary"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/btnEdit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:background="?attr/selectableItemBackground"
-                android:padding="4dp"
-                android:text="@string/edit"
-                android:textColor="@color/accent"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+            android:fontFamily="@font/nps_font"
+            android:letterSpacing="0.01"
+            android:text="강릉·속초 여행"
+            android:textColor="@color/input_hint"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvDates"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
+            android:fontFamily="@font/nps_font"
+            android:letterSpacing="0.01"
             android:text="2026.7.27 - 7.29"
-            android:textColor="@color/text_secondary"
-            android:textSize="15sp" />
+            android:textColor="@color/input_hint"
+            android:textSize="11sp" />
 
         <TextView
             android:id="@+id/tvPets"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
+            android:fontFamily="@font/nps_font"
+            android:letterSpacing="0.01"
             android:text="초코와"
-            android:textColor="@color/text_secondary"
-            android:textSize="15sp" />
+            android:textColor="@color/input_hint"
+            android:textSize="11sp" />
 
-        <com.naver.maps.map.MapView
-            android:id="@+id/mapView"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="190dp"
-            android:layout_marginTop="14dp" />
+            android:layout_height="170dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_map_rounded"
+            android:clipToOutline="true">
+
+            <com.naver.maps.map.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/dayTabs"
@@ -104,34 +100,39 @@
             app:tabMode="scrollable"
             app:tabPaddingStart="0dp"
             app:tabRippleColor="@null"
-            app:tabSelectedTextColor="@color/accent"
-            app:tabTextColor="@color/text_secondary" />
+            app:tabSelectedTextColor="@color/input_hint"
+            app:tabTextAppearance="@style/TextAppearance.PawMap.Tab"
+            app:tabTextColor="@color/input_hint" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/outline" />
+            android:background="#ADADAE" />
 
         <TextView
             android:id="@+id/tvDayDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
+            android:fontFamily="@font/nps_font"
+            android:letterSpacing="0.01"
             android:text="7.27 (월)"
-            android:textColor="@color/text_primary"
-            android:textSize="16sp" />
+            android:textColor="@color/input_hint"
+            android:textSize="15sp" />
 
         <!-- Empty state -->
         <TextView
             android:id="@+id/emptyCard"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
+            android:layout_height="60dp"
             android:layout_marginTop="14dp"
             android:background="@drawable/bg_dashed"
+            android:fontFamily="@font/nps_font"
             android:gravity="center"
+            android:letterSpacing="0.01"
             android:text="@string/empty_day"
             android:textColor="@color/accent"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:visibility="gone" />
 
         <!-- Day place items are added here -->
@@ -145,7 +146,7 @@
         <LinearLayout
             android:id="@+id/btnAddPlace"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="60dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/bg_outline_button_accent"
@@ -155,19 +156,20 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/ic_add"
                 app:tint="@color/accent" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/nps_font"
+                android:letterSpacing="0.01"
                 android:text="@string/add_place"
                 android:textColor="@color/accent"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="16sp" />
         </LinearLayout>
 
     </LinearLayout>
