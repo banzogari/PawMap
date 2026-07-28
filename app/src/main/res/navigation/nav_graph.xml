@@ -72,6 +72,19 @@
         <action
             android:id="@+id/action_tripMain_to_pastTrips"
             app:destination="@id/pastTripsFragment" />
+        <action
+            android:id="@+id/action_tripMain_to_datePicker"
+            app:destination="@id/tripDatePickerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/tripDatePickerFragment"
+        android:name="com.pawmap.app.ui.trip.TripDatePickerFragment"
+        android:label="여행 날짜 선택"
+        tools:layout="@layout/fragment_trip_date_picker">
+        <action
+            android:id="@+id/action_datePicker_to_tripName"
+            app:destination="@id/tripNameFragment" />
     </fragment>
 
     <fragment

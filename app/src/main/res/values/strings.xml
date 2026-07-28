@@ -52,6 +52,7 @@
     <string name="past_trips_title">지난 여행</string>
     <string name="trip_register">여행 일정 등록</string>
     <string name="pick_dates">여행 날짜를 선택해주세요.</string>
+    <string name="pick_dates_hint">날짜를 선택해주세요</string>
     <string name="trip_name_q">여행 이름을 지어주세요!</string>
     <string name="trip_name_hint">여행 이름을 입력해주세요</string>
     <string name="pet_name_q">함께 동반할 반려동물 이름을 입력해주세요</string>

@@ -74,6 +74,10 @@ object DateUtils {
         return startOfDay(c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DAY_OF_MONTH))
     }
 
+    /** Bridges the calendar picker's java.time.LocalDate to our millis-based day math. */
+    fun startOfDay(date: java.time.LocalDate): Long =
+        startOfDay(date.year, date.monthValue, date.dayOfMonth)
+
     /** "7.27 (월)" */
     fun formatDayWithWeekday(millis: Long): String {
         val c = cal(millis)

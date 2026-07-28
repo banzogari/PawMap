@@ -42,6 +42,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "11"
@@ -82,6 +83,10 @@ dependencies {
     // Naver Map + location
     implementation(libs.naver.map.sdk)
     implementation(libs.play.services.location)
+
+    // Custom trip date range picker (full-screen, multi-month scroll)
+    implementation("com.kizitonwose.calendar:view:2.6.2")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
