@@ -3,30 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackground"
+    android:layout_marginHorizontal="21dp"
+    android:layout_marginTop="12dp"
+    android:background="@drawable/bg_card_outline_gray"
+    android:foreground="?attr/selectableItemBackground"
     android:gravity="center_vertical"
+    android:minHeight="76dp"
     android:orientation="horizontal"
-    android:paddingHorizontal="16dp"
-    android:paddingVertical="12dp">
+    android:paddingHorizontal="14dp"
+    android:paddingVertical="13dp">
 
     <FrameLayout
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:background="@drawable/bg_thumb">
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_thumb_tile">
 
         <ImageView
             android:id="@+id/thumbIcon"
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_image"
-            app:tint="@color/text_tertiary" />
+            android:src="@drawable/ic_cafe"
+            app:tint="@color/accent" />
     </FrameLayout>
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="15dp"
         android:layout_weight="1"
         android:orientation="vertical">
 
@@ -34,21 +38,25 @@
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLines="1"
             android:ellipsize="end"
+            android:fontFamily="@font/nps_font"
+            android:letterSpacing="0.01"
+            android:maxLines="1"
             android:text="우드테일 애견카페"
-            android:textColor="@color/text_primary"
-            android:textSize="17sp"
+            android:textColor="#68696A"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/nps_font"
+            android:letterSpacing="0.01"
             android:text="카페"
-            android:textColor="@color/text_secondary"
-            android:textSize="14sp" />
+            android:textColor="#68696A"
+            android:textSize="11sp" />
     </LinearLayout>
 
     <ImageButton
@@ -57,7 +65,7 @@
         android:layout_height="36dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="삭제"
-        android:padding="8dp"
+        android:padding="6dp"
         android:src="@drawable/ic_close"
-        app:tint="@color/text_secondary" />
+        app:tint="@color/negative" />
 </LinearLayout>

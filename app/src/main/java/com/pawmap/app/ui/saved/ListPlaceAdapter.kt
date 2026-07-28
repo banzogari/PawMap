@@ -28,7 +28,7 @@ class ListPlaceAdapter(
         b.tvName.text = p.name
         b.tvCategory.text = p.category
         b.thumbIcon.setImageResource(p.category().iconRes)
-        b.thumbIcon.setColorFilter(ContextCompat.getColor(b.root.context, p.category().colorRes))
+        b.thumbIcon.setColorFilter(ContextCompat.getColor(b.root.context, R.color.accent))
         b.root.setOnClickListener { onClick(p.id) }
         b.btnRemove.setOnClickListener { onRemove(p.id) }
     }

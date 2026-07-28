@@ -62,22 +62,29 @@ class SavedPlacesFragment : Fragment() {
     }
 
     private fun showNewListDialog() {
-        val input = EditText(requireContext()).apply {
-            hint = "목록 이름"
-            setPadding(48, 32, 48, 32)
-        }
-        MaterialAlertDialogBuilder(requireContext())
-            .setTitle("새 목록")
-            .setView(input)
-            .setPositiveButton("만들기") { _, _ ->
-                vm.createList(input.text?.toString().orEmpty()) { ok ->
-                    if (!ok) Toast.makeText(
-                        requireContext(), "이름이 비어 있거나 이미 있는 목록이에요", Toast.LENGTH_SHORT
-                    ).show()
-                }
+        val dialog = android.app.Dialog(requireContext())
+        val v = layoutInflater.inflate(R.layout.dialog_new_list, null)
+        dialog.setContentView(v)
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.window?.setLayout(
+            (265 * resources.displayMetrics.density).toInt(),
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+
+        val etName = v.findViewById<EditText>(R.id.etName)
+        val tvCounter = v.findViewById<android.widget.TextView>(R.id.tvCounter)
+        etName.doAfterTextChanged { tvCounter.text = "${it?.length ?: 0}/20" }
+
+        v.findViewById<View>(R.id.btnCancel).setOnClickListener { dialog.dismiss() }
+        v.findViewById<View>(R.id.btnCreate).setOnClickListener {
+            vm.createList(etName.text?.toString().orEmpty()) { ok ->
+                if (ok) dialog.dismiss()
+                else Toast.makeText(
+                    requireContext(), "이름이 비어 있거나 이미 있는 목록이에요", Toast.LENGTH_SHORT
+                ).show()
             }
-            .setNegativeButton(getString(R.string.cancel), null)
-            .show()
+        }
+        dialog.show()
     }
 
     private fun showMore(list: ListWithCount, anchor: View) {
