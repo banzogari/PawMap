@@ -1,10 +1,12 @@
 package com.pawmap.app.ui.detail
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -12,6 +14,9 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
+import coil.load
 import com.google.android.material.tabs.TabLayout
 import com.pawmap.app.R
 import com.pawmap.app.data.entity.PlaceEntity
@@ -60,6 +65,8 @@ class PlaceDetailFragment : Fragment() {
         binding.tvName.text = p.name
         binding.tvSub.text = "${p.category} · ${p.region}"
 
+        bindPhotos(p)
+
         // Overview
         binding.tvAddress.text = p.address
         binding.tvHours.bindOpenStatus(p.openNow, p.hoursText)
@@ -87,6 +94,78 @@ class PlaceDetailFragment : Fragment() {
         binding.rowRestrict.visibleIf(!p.restrictionsText.isNullOrBlank())
         binding.valFacility.text = p.facilitiesText ?: ""
         binding.rowFacility.visibleIf(!p.facilitiesText.isNullOrBlank())
+    }
+
+    /** place_image에서 온 URL들로 헤더 페이저 + 썸네일 스트립을 채운다. 없으면 placeholder 유지. */
+    private fun bindPhotos(p: PlaceEntity) {
+        val urls = p.imageUrls?.split(",")?.map { it.trim() }?.filter { it.isNotEmpty() }.orEmpty()
+
+        if (urls.isEmpty()) {
+            binding.photoPager.visibility = View.GONE
+            binding.tvPhotoCount.visibility = View.GONE
+            binding.imgPlaceholder.visibility = View.VISIBLE
+            return
+        }
+
+        binding.imgPlaceholder.visibility = View.GONE
+        binding.photoPager.visibility = View.VISIBLE
+        binding.tvPhotoCount.visibility = View.VISIBLE
+        binding.photoPager.adapter = PhotoPagerAdapter(urls)
+        binding.tvPhotoCount.text = "1/${urls.size}"
+        binding.photoPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                binding.tvPhotoCount.text = "${position + 1}/${urls.size}"
+            }
+        })
+
+        // 하단 썸네일 4칸: 있는 만큼 채우고 나머지는 placeholder 배경 유지
+        val thumbs = listOf(
+            binding.photoThumb1, binding.photoThumb2, binding.photoThumb3, binding.photoThumb4
+        )
+        thumbs.forEachIndexed { i, iv ->
+            val url = urls.getOrNull(i)
+            if (url != null) iv.load(url) {
+                crossfade(true)
+                listener(
+                    onError = { _, result ->
+                        Log.e("PawMapImg", "FAIL $url", result.throwable)
+                    },
+                    onSuccess = { _, _ ->
+                        Log.d("PawMapImg", "OK $url")
+                    }
+                )
+            }
+        }
+    }
+
+    private class PhotoPagerAdapter(
+        private val urls: List<String>
+    ) : RecyclerView.Adapter<PhotoPagerAdapter.VH>() {
+
+        class VH(val iv: ImageView) : RecyclerView.ViewHolder(iv)
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
+            val iv = ImageView(parent.context).apply {
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
+                )
+                scaleType = ImageView.ScaleType.CENTER_CROP
+            }
+            return VH(iv)
+        }
+
+        override fun onBindViewHolder(holder: VH, position: Int) {
+            holder.iv.load(urls[position]) {
+                crossfade(true)
+                listener(
+                    onError = { _, result ->
+                        Log.e("PawMapImg", "FAIL(pager) ${urls[position]}", result.throwable)
+                    }
+                )
+            }
+        }
+
+        override fun getItemCount() = urls.size
     }
 
     private fun speciesChip(text: String): TextView {
