@@ -16,7 +16,8 @@ class MainActivity : AppCompatActivity() {
     private val topLevelDestinations = setOf(
         R.id.mapHomeFragment,
         R.id.savedPlacesFragment,
-        R.id.tripMainFragment
+        R.id.tripMainFragment,
+        R.id.tripNameFragment
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
