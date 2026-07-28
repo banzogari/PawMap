@@ -13,6 +13,9 @@
     <color name="text_secondary">#6E6E73</color>
     <color name="text_tertiary">#A6A6AB</color>
 
+    <!-- 여행 일정 인트로(화면-1) 서브텍스트 전용 -->
+    <color name="intro_sub_text">#9A9A9A</color>
+
     <!-- Accent -->
     <color name="accent">#6FAAE4</color>
     <color name="accent_dark">#4E8CCB</color>
