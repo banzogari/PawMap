@@ -123,6 +123,15 @@ interface PawDao {
     @Query("DELETE FROM trip_places WHERE id = :id")
     suspend fun deleteTripPlace(id: Long)
 
+    @Query("DELETE FROM trip_places WHERE tripId = :tripId")
+    suspend fun deleteTripPlacesByTrip(tripId: Long)
+
+    @Query("DELETE FROM journals WHERE tripId = :tripId")
+    suspend fun deleteJournalsByTrip(tripId: Long)
+
+    @Query("DELETE FROM trips WHERE id = :tripId")
+    suspend fun deleteTripRow(tripId: Long)
+
     @Query("SELECT * FROM trip_places WHERE tripId = :tripId ORDER BY dayIndex, orderIndex")
     suspend fun getTripPlaces(tripId: Long): List<TripPlaceEntity>
 

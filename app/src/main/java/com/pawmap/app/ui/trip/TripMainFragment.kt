@@ -60,6 +60,7 @@ class TripMainFragment : Fragment() {
     private fun showDatePicker() {
         val picker = MaterialDatePicker.Builder.dateRangePicker()
             .setTitleText(getString(R.string.pick_dates))
+            .setTheme(R.style.ThemeOverlay_PawMap_DatePicker)
             .build()
         picker.addOnPositiveButtonClickListener { range ->
             val start = DateUtils.utcToLocalStartOfDay(range.first)

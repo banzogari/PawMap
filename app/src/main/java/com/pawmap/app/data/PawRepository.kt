@@ -104,6 +104,13 @@ class PawRepository private constructor(private val dao: PawDao) {
         dao.updateTrip(trip.copy(name = newName.trim().ifEmpty { trip.name }))
     }
 
+    /** Deletes a trip and all its associated day-places and journal entries. */
+    suspend fun deleteTrip(tripId: Long) {
+        dao.deleteTripPlacesByTrip(tripId)
+        dao.deleteJournalsByTrip(tripId)
+        dao.deleteTripRow(tripId)
+    }
+
     // ---- Trip places ----
     fun observeTripPlaces(tripId: Long): Flow<List<TripPlaceEntity>> = dao.observeTripPlaces(tripId)
     suspend fun getTripPlaces(tripId: Long): List<TripPlaceEntity> = dao.getTripPlaces(tripId)

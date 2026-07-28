@@ -68,6 +68,9 @@ class TripDetailFragment : Fragment() {
         binding.btnSave.setOnClickListener {
             Toast.makeText(requireContext(), getString(R.string.trip_saved), Toast.LENGTH_SHORT).show()
         }
+
+        binding.btnDeleteTrip.setOnClickListener { confirmDeleteTrip() }
+
         binding.btnAddPlace.setOnClickListener {
             findNavController().navigate(
                 R.id.action_tripDetail_to_addPlace,
@@ -185,6 +188,20 @@ class TripDetailFragment : Fragment() {
             .setTitle("장소 삭제")
             .setMessage("‘${item.place.name}’을(를) 일정에서 뺄까요?")
             .setPositiveButton(getString(R.string.delete)) { _, _ -> vm.removePlace(item.tripPlaceId) }
+            .setNegativeButton(getString(R.string.cancel), null)
+            .show()
+    }
+
+    private fun confirmDeleteTrip() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(getString(R.string.delete_trip))
+            .setMessage(getString(R.string.delete_trip_confirm))
+            .setPositiveButton(getString(R.string.delete)) { _, _ ->
+                vm.deleteTrip {
+                    Toast.makeText(requireContext(), getString(R.string.trip_deleted), Toast.LENGTH_SHORT).show()
+                    findNavController().popBackStack(R.id.tripMainFragment, false)
+                }
+            }
             .setNegativeButton(getString(R.string.cancel), null)
             .show()
     }

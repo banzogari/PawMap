@@ -71,4 +71,11 @@ class TripDetailViewModel(app: Application) : AndroidViewModel(app) {
             }
         }
     }
+
+    fun deleteTrip(onDone: () -> Unit) {
+        viewModelScope.launch {
+            trip.value?.let { repo.deleteTrip(it.id) }
+            onDone()
+        }
+    }
 }
