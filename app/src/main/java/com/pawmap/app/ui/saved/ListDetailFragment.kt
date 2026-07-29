@@ -42,6 +42,13 @@ class ListDetailFragment : Fragment() {
         binding.recycler.adapter = adapter
         binding.btnBack.setOnClickListener { findNavController().popBackStack() }
 
+        // Open search in "add to this list" mode.
+        binding.btnAddPlace.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_listDetail_to_search, bundleOf("addToListId" to listId)
+            )
+        }
+
         vm.listName.observe(viewLifecycleOwner) { binding.tvTitle.text = it }
         vm.places.observe(viewLifecycleOwner) { places ->
             adapter.submitList(places)

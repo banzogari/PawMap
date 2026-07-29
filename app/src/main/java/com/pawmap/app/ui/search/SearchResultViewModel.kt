@@ -39,4 +39,12 @@ class SearchResultViewModel(app: Application) : AndroidViewModel(app) {
             refresh()
         }
     }
+
+    /** Adds a place to the given saved-place list (used by "add to this list" mode). */
+    fun addToList(listId: Long, placeId: Long, onDone: () -> Unit) {
+        viewModelScope.launch {
+            repo.addPlaceToList(listId, placeId)
+            onDone()
+        }
+    }
 }

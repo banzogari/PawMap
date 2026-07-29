@@ -24,6 +24,7 @@
         android:label="검색 결과"
         tools:layout="@layout/fragment_search_result">
         <argument android:name="query" app:argType="string" android:defaultValue="" />
+        <argument android:name="addToListId" app:argType="long" android:defaultValue="-1L" />
         <action
             android:id="@+id/action_search_to_detail"
             app:destination="@id/placeDetailFragment" />
@@ -56,6 +57,9 @@
         <action
             android:id="@+id/action_listDetail_to_detail"
             app:destination="@id/placeDetailFragment" />
+        <action
+            android:id="@+id/action_listDetail_to_search"
+            app:destination="@id/searchResultFragment" />
     </fragment>
 
     <fragment

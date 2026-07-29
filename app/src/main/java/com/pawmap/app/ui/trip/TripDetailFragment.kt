@@ -52,22 +52,24 @@ class TripDetailFragment : Fragment() {
         tripId = arguments?.getLong("tripId") ?: -1L
         vm.load(tripId)
 
-        viewLifecycleOwner.lifecycle.addObserver(MapViewLifecycleObserver(binding.mapView))
-        binding.mapView.getMapAsync { map ->
-            naverMap = map
-            // Mini-map: no gestures so the surrounding scroll view isn't hijacked.
-            map.uiSettings.apply {
-                isScrollGesturesEnabled = false
-                isZoomGesturesEnabled = false
-                isTiltGesturesEnabled = false
-                isRotateGesturesEnabled = false
-                isStopGesturesEnabled = false
-                isZoomControlEnabled = false
-                isLocationButtonEnabled = false
+        // getMapAsync must run after MapView.onCreate — the observer guarantees that.
+        viewLifecycleOwner.lifecycle.addObserver(
+            MapViewLifecycleObserver(binding.mapView) { map ->
+                naverMap = map
+                // Mini-map: no gestures so the surrounding scroll view isn't hijacked.
+                map.uiSettings.apply {
+                    isScrollGesturesEnabled = false
+                    isZoomGesturesEnabled = false
+                    isTiltGesturesEnabled = false
+                    isRotateGesturesEnabled = false
+                    isStopGesturesEnabled = false
+                    isZoomControlEnabled = false
+                    isLocationButtonEnabled = false
+                }
+                map.moveCamera(CameraUpdate.scrollTo(LatLng(37.5666, 126.9784)))
+                renderMapMarkers(vm.dayPlaces.value ?: emptyList())
             }
-            map.moveCamera(CameraUpdate.scrollTo(LatLng(37.5666, 126.9784)))
-            renderMapMarkers(vm.dayPlaces.value ?: emptyList())
-        }
+        )
 
         binding.btnBack.setOnClickListener { findNavController().popBackStack() }
 
