@@ -18,6 +18,21 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="-10dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/back"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="#68696A" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
             <LinearLayout
                 android:id="@+id/btnSave"
                 android:layout_width="wrap_content"
@@ -116,6 +131,7 @@
             app:tabGravity="start"
             app:tabIndicatorColor="@color/accent"
             app:tabIndicatorFullWidth="false"
+            app:tabIndicatorHeight="3dp"
             app:tabMode="scrollable"
             app:tabPaddingStart="0dp"
             app:tabRippleColor="@null"

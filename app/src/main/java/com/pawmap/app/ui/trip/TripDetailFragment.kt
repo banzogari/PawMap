@@ -17,11 +17,13 @@ import com.naver.maps.geometry.LatLngBounds
 import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.NaverMap
 import com.naver.maps.map.overlay.Marker
+import com.naver.maps.map.overlay.OverlayImage
 import com.pawmap.app.R
 import com.pawmap.app.data.entity.TripEntity
 import com.pawmap.app.databinding.FragmentTripDetailBinding
 import com.pawmap.app.databinding.ItemTripPlaceBinding
 import com.pawmap.app.ui.common.MapViewLifecycleObserver
+import com.pawmap.app.ui.common.category
 import com.pawmap.app.util.DateUtils
 import android.widget.Toast
 
@@ -66,6 +68,8 @@ class TripDetailFragment : Fragment() {
             map.moveCamera(CameraUpdate.scrollTo(LatLng(37.5666, 126.9784)))
             renderMapMarkers(vm.dayPlaces.value ?: emptyList())
         }
+
+        binding.btnBack.setOnClickListener { findNavController().popBackStack() }
 
         binding.btnSave.setOnClickListener {
             Toast.makeText(requireContext(), getString(R.string.trip_saved), Toast.LENGTH_SHORT).show()
@@ -153,12 +157,14 @@ class TripDetailFragment : Fragment() {
         if (items.isEmpty()) return
 
         val boundsBuilder = LatLngBounds.Builder()
-        val red = ContextCompat.getColor(requireContext(), R.color.cat_food)
         for (dp in items) {
             val pos = LatLng(dp.place.lat, dp.place.lng)
             val marker = Marker().apply {
                 position = pos
-                iconTintColor = red
+                // 카테고리별 핀 (지도 홈과 동일한 아이콘 세트)
+                icon = OverlayImage.fromResource(dp.place.category().markerRes)
+                width = dp(34)
+                height = dp(46)
                 captionText = dp.number.toString()
                 this.map = map
             }
