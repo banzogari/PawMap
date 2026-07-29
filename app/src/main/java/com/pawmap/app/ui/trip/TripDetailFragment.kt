@@ -41,6 +41,8 @@ class TripDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentTripDetailBinding.inflate(inflater, container, false)
+        // View가 재생성될 때(다른 화면 갔다 복귀 등)마다 Day 탭을 다시 그리도록 리셋
+        tabsBuilt = false
         return binding.root
     }
 
