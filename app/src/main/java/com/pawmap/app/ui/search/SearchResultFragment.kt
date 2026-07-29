@@ -56,6 +56,8 @@ class SearchResultFragment : Fragment() {
         binding.recycler.layoutManager = LinearLayoutManager(requireContext())
         binding.recycler.adapter = adapter
 
+        binding.btnBack.setOnClickListener { findNavController().popBackStack() }
+
         vm.rows.observe(viewLifecycleOwner) { rows ->
             adapter.submitList(rows)
             binding.tvEmpty.visibility = if (rows.isEmpty()) View.VISIBLE else View.GONE
