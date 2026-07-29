@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.core.os.bundleOf
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -51,9 +52,14 @@ class SearchResultFragment : Fragment() {
             vm.search(initial)
         }
 
+        // Filter live as the user types (works regardless of the keyboard's
+        // search/enter button, which the Korean IME often swallows for composition).
+        binding.etSearch.doAfterTextChanged { text ->
+            vm.search(text?.toString().orEmpty())
+        }
+
         binding.etSearch.setOnEditorActionListener { v, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                vm.search(v.text?.toString().orEmpty())
                 v.clearFocus()
                 true
             } else false

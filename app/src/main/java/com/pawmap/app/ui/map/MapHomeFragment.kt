@@ -60,8 +60,7 @@ class MapHomeFragment : Fragment(), OnMapReadyCallback {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
 
-        viewLifecycleOwner.lifecycle.addObserver(MapViewLifecycleObserver(binding.mapView))
-        binding.mapView.getMapAsync(this)
+        viewLifecycleOwner.lifecycle.addObserver(MapViewLifecycleObserver(binding.mapView, this))
 
         NaverMapSdk.getInstance(requireContext()).setOnAuthFailedListener { ex ->
             Toast.makeText(
@@ -136,22 +135,23 @@ class MapHomeFragment : Fragment(), OnMapReadyCallback {
         val map = naverMap ?: return
         markers.forEach { it.map = null }
         markers.clear()
-        if (places.isEmpty()) return
 
-        val boundsBuilder = LatLngBounds.Builder()
-        for (p in places) {
-            val pos = LatLng(p.lat, p.lng)
+        // The public dataset has a handful of junk coordinates (≈10,10) that would
+        // fling the camera off to Africa/Russia — keep only points inside Korea.
+        val valid = places.filter { it.lat in 33.0..39.0 && it.lng in 124.0..132.0 }
+        if (valid.isEmpty()) return
+
+        // Cap the number of pins so the large nationwide dataset stays smooth.
+        for (p in valid.take(MAX_MARKERS)) {
             val marker = Marker().apply {
-                position = pos
-                // Figma Location Picker 핀 (카테고리별 아이콘 포함)
+                position = LatLng(p.lat, p.lng)
                 icon = OverlayImage.fromResource(p.category().markerRes)
                 width = dp(34)
                 height = dp(46)
-                captionText = p.name
                 tag = p.id
-                // 줌 레벨 16 미만(광역 뷰)에서는 핀 숨김 — 핀 겹침 방지
-                minZoom = 16.0
-                isMinZoomInclusive = true
+                // Hide pins only at country-wide zoom to avoid clutter; visible at
+                // the default/city zoom so filtered results always show up.
+                minZoom = 10.0
                 this.map = map
                 setOnClickListener {
                     findNavController().navigate(
@@ -161,14 +161,19 @@ class MapHomeFragment : Fragment(), OnMapReadyCallback {
                 }
             }
             markers.add(marker)
-            boundsBuilder.include(pos)
         }
+
         if (moveCamera) {
-            if (places.size == 1) {
-                map.moveCamera(CameraUpdate.scrollAndZoomTo(LatLng(places[0].lat, places[0].lng), 13.0))
-            } else {
-                map.moveCamera(CameraUpdate.fitBounds(boundsBuilder.build(), dp(64)))
-            }
+            // Offset the map focus above the bottom sheet / below the top panel so
+            // the target result is visible, then jump to the first result.
+            val top = binding.topPanel.height.takeIf { it > 0 } ?: dp(160)
+            val sheetVisible = ::sheetBehavior.isInitialized &&
+                sheetBehavior.state != BottomSheetBehavior.STATE_HIDDEN
+            val bottom = if (sheetVisible) sheetBehavior.peekHeight else 0
+            map.setContentPadding(0, top, 0, bottom)
+
+            val f = valid.first()
+            map.moveCamera(CameraUpdate.scrollAndZoomTo(LatLng(f.lat, f.lng), 13.0))
         }
     }
 
@@ -195,6 +200,7 @@ class MapHomeFragment : Fragment(), OnMapReadyCallback {
 
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1000
+        private const val MAX_MARKERS = 500
         // 서울시청역 좌표 — 화면 재진입 시 항상 이 위치로 복귀
         private val DEFAULT_CENTER = LatLng(37.5663, 126.9779)
         private const val DEFAULT_ZOOM = 15.0
