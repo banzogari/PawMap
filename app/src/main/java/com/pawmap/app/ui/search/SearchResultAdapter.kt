@@ -1,6 +1,7 @@
 package com.pawmap.app.ui.search
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
@@ -41,11 +42,16 @@ class SearchResultAdapter(
         )
         b.tvDesc.text = p.oneLiner?.let { " · $it" } ?: ""
 
-        // 사진 3칸: imageUrls 앞에서부터 채우고, 없으면 placeholder 배경 유지
+        // 사진 3칸: 없으면 행 자체를 숨겨서 "로딩 중"과 "사진 없음"을 구분
         val urls = p.imageUrls?.split(",")?.map { it.trim() }?.filter { it.isNotEmpty() }.orEmpty()
-        listOf(b.photo1, b.photo2, b.photo3).forEachIndexed { i, iv ->
-            iv.setImageDrawable(null) // 재활용 뷰 잔상 제거
-            urls.getOrNull(i)?.let { url -> iv.load(url) { crossfade(true) } }
+        if (urls.isEmpty()) {
+            b.photoRow.visibility = View.GONE
+        } else {
+            b.photoRow.visibility = View.VISIBLE
+            listOf(b.photo1, b.photo2, b.photo3).forEachIndexed { i, iv ->
+                iv.setImageDrawable(null) // 재활용 뷰 잔상 제거
+                urls.getOrNull(i)?.let { url -> iv.load(url) { crossfade(true) } }
+            }
         }
 
         if (row.isFavorite) {
